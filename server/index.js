@@ -26,10 +26,14 @@ const PASSWORD=process.env.DB_PASSWORD;
 
 const DATABASE_NAME = 'ecommerce';
 const URL = process.env.MONGODB_URI || `mongodb://${USERNAME}:${PASSWORD}@ac-slvjufh-shard-00-00.ejrgjas.mongodb.net:27017,ac-slvjufh-shard-00-01.ejrgjas.mongodb.net:27017,ac-slvjufh-shard-00-02.ejrgjas.mongodb.net:27017/${DATABASE_NAME}?ssl=true&replicaSet=atlas-qgs623-shard-0&authSource=admin&retryWrites=true&w=majority`;
+const PORT = process.env.PORT || 8800; // Use the PORT provided by Heroku or 5000 locally
+
 
 Connection(URL);
-
-
+app.listen(PORT, function () {
+   console.log(`Server is running on port ${PORT}`);
+ });
+ 
 
 // const mongoose=require('mongoose');
 
